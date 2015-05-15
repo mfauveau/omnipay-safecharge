@@ -20,7 +20,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Omnipay\\Pacnet\\" : "src/" }
+        "psr-0": { "Omnipay\\Safecharge\\" : "src/" }
     },
     "require": {
         "omnipay/common": "~2.0"
