@@ -1,0 +1,36 @@
+{
+    "name": "mfauveau/omnipay-safecharge",
+    "type": "library",
+    "description": "SafeCharge Gateway driver for the Omnipay PHP payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "purchase",
+        "safecharge"
+    ],
+    "homepage": "https://github.com/mfauveau/omnipay-safecharge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthieu Fauveau",
+            "email": "mfauveau@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Omnipay\\Pacnet\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
