@@ -13,6 +13,11 @@ class CaptureRequest extends AbstractRequest
 
         $data['sg_TransType'] = 'Settle';
 
+        $this->validate('authCode', 'transactionReference');
+
+        $data['sg_AuthCode'] = $this->getAuthCode();
+        $data['sg_TransactionID'] = $this->getTransactionReference();
+
         return $data;
     }
 }

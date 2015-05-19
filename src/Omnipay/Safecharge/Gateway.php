@@ -17,9 +17,9 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return array(
-            'username'					=> '',
-            'password'					=> '',
-            'testMode'					=> false
+            'username'  => '',
+            'password'  => '',
+            'testMode'  => false
         );
     }
 

@@ -8,8 +8,28 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     protected $liveEndpoint = 'https://process.safecharge.com/service.asmx/Process?';
     protected $testEndpoint = 'https://test.safecharge.com/service.asmx/Process?';
 
-    protected function getBaseData()
+    public function getUsername()
     {
+        return $this->getParameter('username');
+    }
+    public function setUsername($value)
+    {
+        return $this->setParameter('username', $value);
+    }
+
+    public function getPassword()
+    {
+        return $this->getParameter('password');
+    }
+    public function setPassword($value)
+    {
+        return $this->setParameter('password', $value);
+    }
+
+    public function getData()
+    {
+        $this->validate('username', 'password');
+
         $data = array();
         $data['sg_ClientLoginID'] = $this->getUsername();
         $data['sg_ClientPassword'] = $this->getPassword();
@@ -21,7 +41,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $data;
     }
 
-    protected function getBillingData()
+    public function getBillingData()
     {
         $data = array();
 

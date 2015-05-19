@@ -5,7 +5,7 @@ namespace Omnipay\Safecharge\Message;
 /**
  * SafeCharge Sale Request
  */
-class PurchaseRequest extends AbstractRequest
+class PurchaseRequest extends AuthorizeRequest
 {
     public function getData()
     {

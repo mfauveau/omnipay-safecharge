@@ -13,6 +13,10 @@ class VoidRequest extends AbstractRequest
 
         $data['sg_TransType'] = 'Void';
 
+        $this->validate('authCode');
+
+        $data['sg_AuthCode'] = $this->getAuthCode();
+
         return $data;
     }
 }

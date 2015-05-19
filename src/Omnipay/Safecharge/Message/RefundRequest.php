@@ -5,7 +5,7 @@ namespace Omnipay\Safecharge\Message;
 /**
  * SafeCharge Credit Request
  */
-class RefundRequest extends AbstractRequest
+class RefundRequest extends VoidRequest
 {
     public function getData()
     {
