@@ -56,6 +56,14 @@ class Gateway extends AbstractGateway
     }
 
     /**
+     * Complete Purchase
+     */
+    public function completePurchase(array $parameters = array())
+    {
+        return $this->completeAuthorize($parameters);
+    }
+
+    /**
      * Refund
      *
      * Credit Request
@@ -83,6 +91,14 @@ class Gateway extends AbstractGateway
     public function authorize(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Safecharge\Message\AuthorizeRequest', $parameters);
+    }
+
+    /**
+    * Complete Authorize
+    */
+    public function completeAuthorize(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Safecharge\Message\CompleteAuthorizeRequest', $parameters);
     }
 
     /**

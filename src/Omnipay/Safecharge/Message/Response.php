@@ -14,6 +14,10 @@ class Response extends AbstractResponse
     {
         $this->request = $request;
         $this->data = $this->decode($data);
+
+        // echo '<pre>';
+        // print_r($this->data);
+        // exit;
     }
 
     public function isSuccessful()
