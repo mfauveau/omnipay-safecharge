@@ -5,7 +5,6 @@ namespace Omnipay\Safecharge\Message;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 use SimpleXMLElement;
-use stdClass;
 
 /**
  * SafeCharge Response.
@@ -21,17 +20,15 @@ class Response extends AbstractResponse
         }
 
         try {
-            $data = new SimpleXMLElement($data);
+            $this->data = new SimpleXMLElement($data);
         } catch (Exception $e) {
             throw new RuntimeException('Failed to parse XML response: '.$e->getMessage());
         }
-
-        $this->data = $data;
     }
 
     public function isSuccessful()
     {
-        return $this->data->Status != 'ERROR';
+        return $this->data->Status === 'APPROVED';
     }
 
     public function getTransactionReference()

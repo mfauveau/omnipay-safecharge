@@ -35,7 +35,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['sg_ClientPassword'] = $this->getPassword();
         $data['sg_IPAddress'] = '127.0.0.1';
         $data['sg_ResponseFormat'] = 4;
-        $data['sg_Is3dTrans'] = 0;
+        $data['sg_Is3dTrans'] = 1;
         $data['sg_ClientUniqueID'] = (string) time();
 
         return $data;
