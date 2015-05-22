@@ -12,6 +12,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->getParameter('username');
     }
+
     public function setUsername($value)
     {
         return $this->setParameter('username', $value);
@@ -21,9 +22,25 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->getParameter('password');
     }
+
     public function setPassword($value)
     {
         return $this->setParameter('password', $value);
+    }
+
+    public function get3DSecure()
+    {
+        return $this->getParameter('3DSecure');
+    }
+
+    /**
+     * Whether or not to apply 3D secure authentication.
+     *
+     * @param int $value 0 or 1
+     */
+    public function set3DSecure($value)
+    {
+        return $this->setParameter('3DSecure', (int) $value);
     }
 
     public function getData()
@@ -34,8 +51,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['sg_ClientLoginID'] = $this->getUsername();
         $data['sg_ClientPassword'] = $this->getPassword();
         $data['sg_IPAddress'] = '127.0.0.1';
-        $data['sg_ResponseFormat'] = 4;
-        $data['sg_Is3dTrans'] = 1;
+        $data['sg_ResponseFormat'] = 3;
         $data['sg_ClientUniqueID'] = (string) time();
 
         return $data;

@@ -19,7 +19,8 @@ class Gateway extends AbstractGateway
         return array(
             'username'  => '',
             'password'  => '',
-            'testMode'  => false
+            'testMode'  => false,
+            '3DSecure'  => 0,
         );
     }
 
