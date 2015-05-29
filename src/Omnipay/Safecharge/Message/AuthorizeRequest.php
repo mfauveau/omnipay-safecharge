@@ -18,6 +18,11 @@ class AuthorizeRequest extends AbstractRequest
         if ($this->getToken() and $this->getTransactionId()) {
             $data['sg_CCToken'] = $this->getToken();
             $data['sg_TransactionID'] = $this->getTransactionId();
+
+            $this->validate('expMonth', 'expYear');
+
+            $data['sg_ExpMonth'] = $this->getExpMonth();
+            $data['sg_ExpYear'] = $this->getExpYear();
         } else {
             $this->validate('card');
 
@@ -34,7 +39,7 @@ class AuthorizeRequest extends AbstractRequest
             }
         }
 
-        $data['sg_Amount'] = $this->getAmountInteger();
+        $data['sg_Amount'] = $this->getAmount();
         $data['sg_Currency'] = $this->getCurrency();
 
         return array_merge(

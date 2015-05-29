@@ -14,10 +14,6 @@ class Response extends AbstractResponse
     {
         $this->request = $request;
         $this->data = $this->decode($data);
-
-        // echo '<pre>';
-        // print_r($this->data);
-        // exit;
     }
 
     public function isSuccessful()
@@ -72,28 +68,28 @@ class Response extends AbstractResponse
         ) ? $this->data['Reason'] : null;
     }
 
-    public function getRedirectUrl()
-    {
-        if ($this->isRedirect()) {
-            return $this->data['ACSurl'];
-        }
-    }
-
-    public function getRedirectMethod()
-    {
-        return 'POST';
-    }
-
-    public function getRedirectData()
-    {
-        if ($this->isRedirect()) {
-            return array(
-                'PaReq' => $this->data['PaReq'],
-                'MerchantID' => $this->data['MerchantID'],
-                'TermURL' => $this->getRequest()->getReturnUrl(),
-            );
-        }
-    }
+    // public function getRedirectUrl()
+    // {
+    //     if ($this->isRedirect()) {
+    //         return $this->data['ACSurl'];
+    //     }
+    // }
+    //
+    // public function getRedirectMethod()
+    // {
+    //     return 'POST';
+    // }
+    //
+    // public function getRedirectData()
+    // {
+    //     if ($this->isRedirect()) {
+    //         return array(
+    //             'PaReq' => $this->data['PaReq'],
+    //             'MerchantID' => $this->data['MerchantID'],
+    //             'TermURL' => $this->getRequest()->getReturnUrl(),
+    //         );
+    //     }
+    // }
 
     /**
      * Decode raw ini-style response body

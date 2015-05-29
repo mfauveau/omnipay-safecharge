@@ -19,8 +19,8 @@ class Gateway extends AbstractGateway
         return array(
             'username'  => '',
             'password'  => '',
-            'testMode'  => false,
-            '3DSecure'  => 0,
+            'testMode'  => '',
+            'is3dTrans' => '',
         );
     }
 
@@ -44,6 +44,30 @@ class Gateway extends AbstractGateway
         return $this->setParameter('password', $value);
     }
 
+    public function getTestMode()
+    {
+        return $this->getParameter('testMode');
+    }
+
+    public function setTestMode($value)
+    {
+        return $this->setParameter('testMode', $value);
+    }
+
+    public function getIs3dTrans()
+    {
+        return $this->getParameter('is3dTrans');
+    }
+
+    /**
+     * Whether or not to apply 3D secure authentication.
+     *
+     * @param int $value 0 or 1
+     */
+    public function setIs3dTrans($value)
+    {
+        return $this->setParameter('is3dTrans', $value);
+    }
 
     /**
      * Purchase
@@ -53,14 +77,6 @@ class Gateway extends AbstractGateway
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Safecharge\Message\PurchaseRequest', $parameters);
-    }
-
-    /**
-     * Complete Purchase
-     */
-    public function completePurchase(array $parameters = array())
-    {
-        return $this->completeAuthorize($parameters);
     }
 
     /**
@@ -94,14 +110,6 @@ class Gateway extends AbstractGateway
     }
 
     /**
-    * Complete Authorize
-    */
-    public function completeAuthorize(array $parameters = array())
-    {
-        return $this->createRequest('\Omnipay\Safecharge\Message\CompleteAuthorizeRequest', $parameters);
-    }
-
-    /**
     * Capture
     *
     * Settle Request
@@ -110,5 +118,4 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Safecharge\Message\CaptureRequest', $parameters);
     }
-
 }

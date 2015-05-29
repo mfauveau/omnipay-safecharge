@@ -13,10 +13,20 @@ class VoidRequest extends AbstractRequest
 
         $data['sg_TransType'] = 'Void';
 
-        $this->validate('authCode');
+        $this->validate('amount', 'currency', 'expMonth', 'expYear', 'token', 'authCode', 'transactionId');
 
+        $data['sg_CCToken'] = $this->getToken();
         $data['sg_AuthCode'] = $this->getAuthCode();
+        $data['sg_TransactionID'] = $this->getTransactionId();
 
+        $data['sg_Amount'] = $this->getAmount();
+        $data['sg_Currency'] = $this->getCurrency();
+
+        $data['sg_ExpMonth'] = $this->getExpMonth();
+        $data['sg_ExpYear'] = $this->getExpYear();
+
+        // echo '<pre>';
+        // print_r($data);
         return $data;
     }
 }
