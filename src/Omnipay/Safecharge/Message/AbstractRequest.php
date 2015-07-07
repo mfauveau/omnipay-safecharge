@@ -54,6 +54,56 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('is3dTrans', $value);
     }
 
+    public function getVendorId()
+    {
+        return $this->getParameter('vendorId');
+    }
+
+    public function setVendorId($value)
+    {
+        return $this->setParameter('vendorId', $value);
+    }
+
+    public function getWebsiteId()
+    {
+        return $this->getParameter('websiteId');
+    }
+
+    public function setWebsiteId($value)
+    {
+        return $this->setParameter('websiteId', $value);
+    }
+
+    public function getDescriptor()
+    {
+        return $this->getParameter('descriptor');
+    }
+
+    public function setDescriptor($value)
+    {
+        return $this->setParameter('descriptor', $value);
+    }
+
+    public function getMerchantPhoneNumber()
+    {
+        return $this->getParameter('merchantPhoneNumber');
+    }
+
+    public function setMerchantPhoneNumber($value)
+    {
+        return $this->setParameter('merchantPhoneNumber', $value);
+    }
+
+    public function getMerchantName()
+    {
+        return $this->getParameter('merchantName');
+    }
+
+    public function setMerchantName($value)
+    {
+        return $this->setParameter('merchantName', $value);
+    }
+
     public function getAuthCode()
     {
         return $this->getParameter('authCode');
@@ -101,6 +151,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data = array();
         $data['sg_ClientLoginID'] = $this->getUsername();
         $data['sg_ClientPassword'] = $this->getPassword();
+        $data['sg_VendorID'] = $this->getVendorId();
+        $data['sg_WebsiteID'] = $this->getWebsiteId();
+        $data['sg_MerchantPhoneNumber'] = $this->getMerchantPhoneNumber();
+        $data['sg_Descriptor'] = $this->getDescriptor();
+        $data['sg_MerchantName'] = $this->getMerchantName();
         $data['sg_IPAddress'] = '127.0.0.1';
         $data['sg_ResponseFormat'] = 3;
         $data['sg_Is3dTrans'] = ($this->getIs3dTrans()) ? 1 : 0;
@@ -138,6 +193,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
+        // print_r($data);
+
         $httpResponse = $this->httpClient->post($this->getEndpoint(), null, $data)->send();
 
         // This is to generate my Mocks
@@ -145,8 +202,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         foreach ($headersIterator as $key => $val) {
             echo $key .": ". $val ."\n";
         }
-        echo "\n";
-        echo $httpResponse->getBody();
+        // echo "\n";
+        // echo $httpResponse->getBody();
 
         return $this->response = new Response($this, $httpResponse->getBody());
     }

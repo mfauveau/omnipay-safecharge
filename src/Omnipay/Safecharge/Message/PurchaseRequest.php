@@ -11,11 +11,11 @@ class PurchaseRequest extends AuthorizeRequest
     {
         $data = parent::getData();
 
+        $data['sg_TransType'] = 'Sale';
+
         // if ($this->getIs3dTrans()) {
         //     $data['sg_TransType'] = 'Sale3D';
         //     $data['sg_ApiType'] = 1;
-        // } else {
-            $data['sg_TransType'] = 'Sale';
         // }
 
         return $data;

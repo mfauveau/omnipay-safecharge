@@ -21,6 +21,11 @@ class Gateway extends AbstractGateway
             'password'  => '',
             'testMode'  => '',
             'is3dTrans' => '',
+            'vendorId'  => '',
+            'websiteId' => '',
+            'descriptor' => '',
+            'merchantPhoneNumber' => '',
+            'merchantName' => '',
         );
     }
 
@@ -67,6 +72,56 @@ class Gateway extends AbstractGateway
     public function setIs3dTrans($value)
     {
         return $this->setParameter('is3dTrans', $value);
+    }
+
+    public function getVendorId()
+    {
+        return $this->getParameter('vendorId');
+    }
+
+    public function setVendorId($value)
+    {
+        return $this->setParameter('vendorId', $value);
+    }
+
+    public function getWebsiteId()
+    {
+        return $this->getParameter('websiteId');
+    }
+
+    public function setWebsiteId($value)
+    {
+        return $this->setParameter('websiteId', $value);
+    }
+
+    public function getDescriptor()
+    {
+        return $this->getParameter('descriptor');
+    }
+
+    public function setDescriptor($value)
+    {
+        return $this->setParameter('descriptor', $value);
+    }
+
+    public function getMerchantPhoneNumber()
+    {
+        return $this->getParameter('merchantPhoneNumber');
+    }
+
+    public function setMerchantPhoneNumber($value)
+    {
+        return $this->setParameter('merchantPhoneNumber', $value);
+    }
+
+    public function getMerchantName()
+    {
+        return $this->getParameter('merchantName');
+    }
+
+    public function setMerchantName($value)
+    {
+        return $this->setParameter('merchantName', $value);
     }
 
     /**

@@ -25,8 +25,6 @@ class VoidRequest extends AbstractRequest
         $data['sg_ExpMonth'] = $this->getExpMonth();
         $data['sg_ExpYear'] = $this->getExpYear();
 
-        // echo '<pre>';
-        // print_r($data);
         return $data;
     }
 }
