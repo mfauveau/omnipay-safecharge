@@ -193,15 +193,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
-        // print_r($data);
-
         $httpResponse = $this->httpClient->post($this->getEndpoint(), null, $data)->send();
 
-        // This is to generate my Mocks
-        $headersIterator = $httpResponse->getHeaders();
-        foreach ($headersIterator as $key => $val) {
-            echo $key .": ". $val ."\n";
-        }
+        // This is to generate test Mocks
+        // $headersIterator = $httpResponse->getHeaders();
+        // foreach ($headersIterator as $key => $val) {
+        //     echo $key .": ". $val ."\n";
+        // }
         // echo "\n";
         // echo $httpResponse->getBody();
 
