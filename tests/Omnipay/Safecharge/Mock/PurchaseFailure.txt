@@ -10,14 +10,16 @@ x-iinfo: 8-142827469-142827499 NNNN CT(163 165 0) RT(1432830244367 96) q(0 0 3 -
 x-cdn: Incapsula
 transfer-encoding: chunked
 
-"ClientLoginID=SafeChargeTestTRX"
-"ClientUniqueID=1432830244"
-"TransactionID=1504674481"
-"Status=ERROR"
-"AuthCode="
-"AVSCode="
-"CVV2Reply="
-"Reason=Invalid Currency"
-"ErrCode=-1100"
-"ExErrCode=1202"
-"CustomData="
+<Response>
+<ClientLoginID>SafeChargeTestTRX</ClientLoginID>
+<ClientUniqueID>1432830244</ClientUniqueID>
+<TransactionID>1504674481</TransactionID>
+<Status>ERROR</Status>
+<AuthCode></AuthCode>
+<AVSCode></AVSCode>
+<CVV2Reply></CVV2Reply>
+<Reason>Invalid Currency</Reason>
+<ErrCode>-1100</ErrCode>
+<ExErrCode>1202</ExErrCode>
+<CustomData></CustomData>
+</Response>

@@ -10,14 +10,16 @@ x-iinfo: 7-113653233-113653270 SNNN RT(1432830111738 1696) q(0 0 0 -1) r(4 4) U6
 x-cdn: Incapsula
 transfer-encoding: chunked
 
-"ClientLoginID=SafeChargeTestTRX"
-"ClientUniqueID=1432830113"
-"TransactionID=1504674478"
-"Status=APPROVED"
-"AuthCode=111163"
-"AVSCode="
-"CVV2Reply="
-"Reason="
-"ErrCode=0"
-"ExErrCode=0"
-"CustomData="
+<Response>
+<ClientLoginID>SafeChargeTestTRX</ClientLoginID>
+<ClientUniqueID>1432830113</ClientUniqueID>
+<TransactionID>1504674478</TransactionID>
+<Status>APPROVED</Status>
+<AuthCode>111163</AuthCode>
+<AVSCode></AVSCode>
+<CVV2Reply></CVV2Reply>
+<Reason></Reason>
+<ErrCode>0</ErrCode>
+<ExErrCode>0</ExErrCode>
+<CustomData></CustomData>
+</Response>
