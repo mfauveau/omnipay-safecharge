@@ -157,7 +157,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['sg_Descriptor'] = $this->getDescriptor();
         $data['sg_MerchantName'] = $this->getMerchantName();
         $data['sg_IPAddress'] = '127.0.0.1';
-        $data['sg_ResponseFormat'] = 3;
+        $data['sg_ResponseFormat'] = 4;
         $data['sg_Is3dTrans'] = ($this->getIs3dTrans()) ? 1 : 0;
         $data['sg_ClientUniqueID'] = (string) time();
 

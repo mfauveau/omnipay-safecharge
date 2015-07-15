@@ -99,15 +99,19 @@ class Response extends AbstractResponse
      */
     protected function decode($response)
     {
-        $lines = explode("\n", $response);
-        $data = array();
-        foreach ($lines as $line) {
-            $line = explode('=', $line, 2);
-            $line = str_replace('"', '', $line);
-            if (!empty($line[0])) {
-                $data[trim($line[0])] = isset($line[1]) ? trim($line[1]) : '';
+        if ($xml_response = simplexml_load_string($response)) {
+            $json_response = json_encode($xml_response);
+            $response = json_decode($json_response, true);
+
+            foreach ($response as $key => $val) {
+                if (empty($response[$key])) {
+                    $response[$key] = '';
+                }
             }
+
+            return $response;
         }
-        return $data;
+
+        return false;
     }
 }
