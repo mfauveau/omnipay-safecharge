@@ -27,14 +27,152 @@ And run composer to update your dependencies:
     $ curl -s http://getcomposer.org/installer | php
     $ php composer.phar update
 
-## Basic Usage
+## Usage
 
 The following gateways are provided by this package:
 
-* SafeCharge
+* SafeCharge Direct Gateway (without support for 3D secure at this time, feel free to do a PR ;))
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository.
+
+### Setup
+
+```php
+$gateway = Omnipay::create('Safecharge');
+$gateway->initialize(array(
+    'username' => 'AccountTestTRX',
+    'password' => 'password',
+    'testMode' => true,
+    'vendorId' => 'Vendor ID',
+    'websiteId' => 'Website ID'
+));
+```
+
+### Authorize
+
+```php
+$cardData = [
+    'name'          => 'John Doe',
+    'number'        => '4000021059386316',
+    'expiryMonth'   => '06',
+    'expiryYear'    => '2016',
+    'cvv'           => '123'
+];
+
+try {
+    $response = $gateway->authorize([
+        'amount' => '100.00',
+        'currency' => 'USD',
+        'card' => $cardData
+    ])->send();
+
+    if ($response->isSuccessful()) {
+        print_r($response->getData());
+    } else {
+        print $response->getMessage();
+    }
+} catch (Exception $e) {
+    print $e->getMessage();
+}
+```
+
+### Purchase
+
+```php
+$cardData = [
+    'name'          => 'John Doe',
+    'number'        => '4000021059386316',
+    'expiryMonth'   => '06',
+    'expiryYear'    => '2016',
+    'cvv'           => '123'
+];
+
+try {
+    $response = $gateway->purchase([
+        'amount'    => '100.00',
+        'currency'  => 'USD',
+        'card'      => $cardData
+    ])->send();
+
+    if ($response->isSuccessful()) {
+        print_r($response->getData());
+    } else {
+        print $response->getMessage();
+    }
+} catch (Exception $e) {
+    print $e->getMessage();
+}
+```
+
+### Purchase using a Token
+
+```php
+try {
+    $response = $gateway->purchase([
+        'amount'        => '100.00',
+        'currency'      => 'USD',
+        'token'         => 'XXXXXXXXXXXXXXXXXXXXX',
+        'transactionId' => '123456789'
+    ])->send();
+
+    if ($response->isSuccessful()) {
+        print_r($response->getData());
+    } else {
+        print $response->getMessage();
+    }
+} catch (Exception $e) {
+    print $e->getMessage();
+}
+```
+
+### Void
+
+```php
+try {
+    $response = $gateway->void([
+        'amount'        => '100.00',
+        'currency'      => 'USD',
+        'token'         => 'XXXXXXXXXXXXXXXXXXXXX',
+        'transactionId' => '123456789',
+        'authCode'      => '12345',
+        'expMonth'      => '06',
+        'expYear'       => '2016'
+    ])->send();
+
+    if ($response->isSuccessful()) {
+        print_r($response->getData());
+    } else {
+        print $response->getMessage();
+    }
+} catch (Exception $e) {
+    print $e->getMessage();
+}
+```
+
+### Refund
+
+```php
+try {
+    $response = $gateway->refund([
+        'amount'        => '100.00',
+        'currency'      => 'USD',
+        'token'         => 'XXXXXXXXXXXXXXXXXXXXX',
+        'transactionId' => '123456789',
+        'authCode'      => '12345',
+        'expMonth'      => '06',
+        'expYear'       => '2016'
+    ])->send();
+
+    if ($response->isSuccessful()) {
+        print_r($response->getData());
+    } else {
+        print $response->getMessage();
+    }
+} catch (Exception $e) {
+    print $e->getMessage();
+}
+```
 
 ## Support
 
