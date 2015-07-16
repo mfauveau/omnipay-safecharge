@@ -160,6 +160,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['sg_ResponseFormat'] = 4;
         $data['sg_Is3dTrans'] = ($this->getIs3dTrans()) ? 1 : 0;
         $data['sg_ClientUniqueID'] = (string) time();
+        $data['sg_Version'] = '4.0.2';
 
         return $data;
     }

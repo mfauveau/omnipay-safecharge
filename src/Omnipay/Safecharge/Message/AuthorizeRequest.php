@@ -18,6 +18,7 @@ class AuthorizeRequest extends AbstractRequest
         if ($this->getToken() and $this->getTransactionId()) {
             $data['sg_CCToken'] = $this->getToken();
             $data['sg_TransactionID'] = $this->getTransactionId();
+            $data['sg_Rebill'] = 1;
 
             $this->validate('expMonth', 'expYear');
 
