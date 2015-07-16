@@ -1,6 +1,6 @@
 # Omnipay: SafeCharge
 
-**SafeCharge Gateway driver for the Omnipay PHP payment processing library**
+**SafeCharge Direct Gateway driver for the Omnipay PHP payment processing library**
 
 [![Build Status](https://travis-ci.org/mfauveau/omnipay-safecharge.png?branch=master)](https://travis-ci.org/mfauveau/omnipay-safecharge)
 [![Latest Stable Version](https://poser.pugx.org/mfauveau/omnipay-safecharge/version.png)](https://packagist.org/packages/mfauveau/omnipay-safecharge)
@@ -8,6 +8,8 @@
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements [SafeCharge](http://www.safecharge.com/) Gateway support for Omnipay.
+
+If you are looking for the "SafeCharge Cashier" implementation see [Omnipay Gate2Shop](https://github.com/mfauveau/omnipay-gate2shop). It's the same thing except for the endpoint URL.
 
 ## Installation
 
