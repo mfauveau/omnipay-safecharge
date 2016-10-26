@@ -154,6 +154,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('nameOnCard', $value);
     }
 
+    public function getPersonalId()
+    {
+        return $this->getParameter('personalId');
+    }
+
+    public function setPersonalId($value)
+    {
+        return $this->setParameter('personalId', $value);
+    }
+
     public function getData()
     {
         $this->validate('username', 'password');
@@ -192,6 +202,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $data['sg_IPAddress'] = $this->getClientIp();
             $data['sg_Email'] = $card->getEmail();
             $data['sg_NameOnCard'] = $this->getNameOnCard();
+            $data['sg_PersonalID'] = $this->getPersonalId();
             // shipping details
             $data['sg_Ship_Country'] = $card->getShippingCountry();
             $data['sg_Ship_State'] =  $card->getShippingState();

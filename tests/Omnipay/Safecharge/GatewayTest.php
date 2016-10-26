@@ -20,9 +20,10 @@ class GatewayTest extends GatewayTestCase
         $this->card['number'] = '4000024473425231';
 
         $this->purchaseOptions = array(
-            'amount'    => '10.00',
-            'currency'  => 'USD',
-            'card'      => $this->card
+            'amount'     => '10.00',
+            'currency'   => 'USD',
+            'card'       => $this->card,
+            'personalId' => '101010',
         );
     }
 
